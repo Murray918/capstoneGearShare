@@ -1,16 +1,45 @@
-const models = require('./models');
-'use strict'
+const models = require('./models'),
+      Sequelize = require('sequelize')
+
+
 
 console.log('party party')
 function createProduct(){
   const product = models.Product.build({
     make:'Sure',
     modelNum:'SM58',
-    info:'this is a micrphpne for live sound',
+    info:'this is a micrphpne for live sound'
     // tags: ['mic', 'micrphpne', 'live']
   });
 
-user.save().then(function(newProduct){
+  user.save().then(function(newUser){
+    console.log(newUser.dataValues);
+  })
+  }
+
+createUser();
+
+function listUsers() {
+
+models.User.findAll().then(function (users) {
+  uses.forEach(function(user){
+    console.log(user.dataValues);
+  })
+})
+}
+
+listUser();
+
+  function createUser(){
+    const product = models.User.build({
+      name:'Bailey Bryant',
+      userName :'bkittyface',
+      bio : 'I like cats you fool'
+      // tags: ['mic', 'micrphpne', 'live']
+    });
+
+
+product.save().then(function(newProduct){
   console.log(newProduct.dataValues);
 })
 }

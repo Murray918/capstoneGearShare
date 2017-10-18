@@ -1,0 +1,24 @@
+\q
+\q
+\l
+\q
+\l
+\q
+psql sdb
+;
+\q
+\d
+\q
+\d
+\d "Users"
+\q
+\db
+\q
+psql capstone
+/db
+\c capstone
+\d
+sequelize db:migrate
+\q
+\c
+\s capstone
