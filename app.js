@@ -4,6 +4,8 @@ const models = require('./models'),
 
 
 console.log('party party')
+
+//this creates the table for all the products
 function createProduct(){
   const product = models.Product.build({
     make:'Sure',
@@ -11,49 +13,47 @@ function createProduct(){
     info:'this is a micrphpne for live sound'
     // tags: ['mic', 'micrphpne', 'live']
   });
-
-  user.save().then(function(newUser){
-    console.log(newUser.dataValues);
+  product.save().then(function(newProduct){
+    console.log(newProduct.dataValues);
   })
   }
 
-createUser();
 
-function listUsers() {
+  // createProduct();
 
-models.User.findAll().then(function (users) {
-  uses.forEach(function(user){
-    console.log(user.dataValues);
+  function listProducts() {
+
+  models.Product.findAll().then(function (products) {
+    products.forEach(function(product){
+      console.log(product.dataValues);
+    })
   })
-})
-}
+  }
 
-listUser();
+  listProducts();
 
   function createUser(){
-    const product = models.User.build({
+    const user = models.User.build({
       name:'Bailey Bryant',
       userName :'bkittyface',
       bio : 'I like cats you fool'
       // tags: ['mic', 'micrphpne', 'live']
     });
 
+  user.save().then(function(newUser){
+    console.log(newUser.dataValues);
+  })
+  }
 
-product.save().then(function(newProduct){
-  console.log(newProduct.dataValues);
-})
-}
+// createUser();
 
+function listUsers() {
 
-createProduct();
-
-function listProducts() {
-
-models.Product.findAll().then(function (products) {
-  products.forEach(function(product){
-    console.log(product.dataValues);
+models.User.findAll().then(function (users) {
+  users.forEach(function(user){
+    console.log(user.dataValues);
   })
 })
 }
 
-listProducts();
+listUsers();
