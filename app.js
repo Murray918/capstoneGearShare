@@ -1,6 +1,15 @@
 const models = require('./models'),
-      Sequelize = require('sequelize')
+      Sequelize = require('sequelize'),
+      express = require('express'),
+      bodyParser = require('body-parser');
+let app = express();
 
+//boiler plate body parser can talk to the html and get it recieve it in app.js
+
+app.use(bodyParser.json());
+app.use(bodyParser.urlencoded({
+  extended: false
+}));
 
 
 console.log('party party')
@@ -57,3 +66,19 @@ models.User.findAll().then(function (users) {
 }
 
 listUsers();
+
+app.listen(3000, function() {
+  console.log('successfully started Express Application');
+})
+
+process.on('SIGINT', function() {
+  console.log("\nshutting down");
+  const index = require('./models/index')
+  index.sequelize.close()
+
+  // give it a second
+  setTimeout(function() {
+    console.log('process exit');
+    process.exit(0);
+  }, 1000)
+});
