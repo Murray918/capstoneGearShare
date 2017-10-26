@@ -1,65 +1,43 @@
-
 import React, {Component} from 'react';
 import {NavLink} from 'react-router-dom';
-import '../styles/App.css';
-
-
+import '../styles/skeleton.css';
+import '../styles/normalize.css';
 
 export default class BaseLayout extends Component {
-  render(){
+  render() {
     // INLINE STYLING
-    let titleStyle = {
-      "fontFamily": "Helvetica",
-      "fontSize": "18rem"
-    }
-    let subtitleStyle = {
-      "fontFamily": "Andale Mono",
-      "fontSize": "10rem"
-    }
-    let navTitle = {
-      "fontFamily": "Helvetica",
-      "fontSize": "180%"
-    }
+
     return (
-      <div className="container-fluid nav">
-        <nav className="row navbar navbar-inverse">
-          <div className="container-fluid">
-            <div className="navbar-header">
-              <ul className="nav navbar-nav">
-                <li style={navTitle}>
-                  <NavLink to='/'>Home</NavLink>
-                </li>
-                <li>
-                  <NavLink to='/rentout'>Lease Gear</NavLink>
-                </li>
-                <li>
-                    <NavLink to='/rent'>Rent</NavLink>
-                </li>
-                <li>
-                  <NavLink  activeClassName="selected" to="">
-                    <i className="fa fa-facebook" aria-hidden="true"></i>
-                  </NavLink>
-                </li>
-              </ul>
+      <div>
+      <div className="container">
+        <nav id ="clear" >
+          <div className="row navWrap">
+            <div className="two columns navText">
+              <NavLink to='/'>Home</NavLink>
             </div>
-          </div>
-          <div
-            className="col-lg-12 header"
-            id = "headerStyle">
-            <div className="header-title">
-              <div
-                className="restaurant-name"
-                style={titleStyle}>
-                  Rent Gear
-              </div>
-              <div className="subtitle" style={subtitleStyle}>
-                Lease Gear
-              </div>
+            <div className="two columns navText">
+              <NavLink to='/rentout'>Lease Gear</NavLink>
+            </div>
+            <div className="two columns navText">
+              <NavLink to='/rent'>Rent</NavLink>
+            </div>
+            <div className="two columns navText">
+              <NavLink activeClassName="selected" to="">Message</NavLink>
             </div>
           </div>
         </nav>
+      </div>
+        <div id="headerStyle" className="mainSearchWrap">
+          <form type="submit" className="mainSearchForm">
+            <input  type="search" placeholder="Search Gear" id="mainSrearchInput"/>
+            <button className ="button-primary searchBtn" >Search</button>
+          </form>
+        </div>
+
+          <div className="container">
         {this.props.children}
       </div>
+    </div>
     );
   }
 }

@@ -1,63 +1,36 @@
-/*dark blue = #322443
-light pink = #F7E9E3
-yellow = #F7C16D
-grey = #A8A1AF
-bright pink = #F08778*/
-
-
-
-
-
-body {
-  background-color: #F7E9E3;
-}
-nav{
-  padding-top: 40px;
-}
-.nav-title{
-  font-family: Arizonia;
-  font-size: 150%;
+nav {
+  margin: 2.5em auto;
 }
 
-
-.app-body{
-  background-color: white;
+.navText {
 }
 
-.offset{
-  position: relative;
-  bottom: 80px;
-  box-shadow:  rgba(0, 0, 0, 0.22) -2px 9px 5px 0px;
-}
-.headings {
-  font-family: Arizonia;
-  font-size: 80px;
-}
-.sub-headings {
-  font-family: Raleway;
-}
-.primary-text{
-  font-size: 125%;
-  line-height: 3rem;
-  font-family: Raleway;
-  color: #DEDDDD;
-}
-.fa {
-  font-size: 1.3em;
+.mainSearchWrap{
+  margin: 0 auto;
+  margin-top: 2.5;
+
+
 }
 
-.about {
-  color: #fff;
+.mainSearchForm {
+  display: flex;
+  flex-direction: column;
 }
 
-.table{
-  font-family: Raleway;
+#mainSrearchInput{
+  width: 60%;
+  margin: 0 auto;
+  margin-top: 10%;
 }
 
-.email{
-  background-color: rgb(34, 34, 34);
-  color: white;
-  font-family: Raleway;
+
+.searchBtn {
+  width: 13em;
+  margin: 0 auto;
+  margin-top: 4em;
+}
+
+.navWrap{
 
 }
 
@@ -65,16 +38,4 @@ footer{
   text-align: center;
   color: ##A8A1AF;
   padding-bottom: 20px;
-}
-
-#headerStyle {
-  text-Align : center;
-  height: 400px;
-  color: #A8A1AF;
-  background-Image: url(../images/closeUpMixer.jpg);
-  background-Size: cover;
-  background-Position: center;
-  box-Shadow : rgba(0, 0, 0, 0.22) -2px 9px 5px 0px;
-  text-Shadow: 1px 1px 2px black;
-  font-Family: decorative;
 }
