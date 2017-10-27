@@ -1,20 +1,24 @@
+'use strtict'
+import React, {Component} from 'react';
 
-import React, { Component } from 'react';
-import '../styles/App.css';
 
+export default class ResultsGrid extends Component {
 
-// you get images from the render section when you pass images as a property in GetImage Form
-
-class ResultsGrid extends Component {
   render() {
-    return(
-      <div>
-        <h1>hello</h1>
+    console.log(this.props.users);
+    // let usersArray = this.props.users;
+    // let user = usersArray.map((user) => {
+    //   return (
+    //     <div key= {user.id} className='row'>
+    //       <h1>please stop having fun in the bedding section, {user.first_name}</h1>
+    //     </div>
+    //   )
+    // })
+
+    return (
+      <div className="resultCard">
+        {/* {user} */}
       </div>
     )
-
-
+  }
 }
-}
-
-export default ResultsGrid;
