@@ -15,7 +15,7 @@ export default class Search extends Component {
     this.state = {
       users: [],
       micropnones : [],
-      value: ""
+      searchValue: ""
     }
   }
 
@@ -26,14 +26,11 @@ export default class Search extends Component {
 
   handleChange(event) {
     event.preventDefault(event);
-    console.log(event.target);
+    this.setState({searchValue : event.target.value})
+    console.log(this.state.vlaue);
   }
 
   fetchingTheThings() {
-
-    let searchWord = JSON.stringify(this.state.value);
-    console.log(searchWord);
-
     fetch('http://localhost:8080/listmicrophones')
     .then((response) => {
       console.log(response);
@@ -57,7 +54,7 @@ export default class Search extends Component {
         </form>
         <div/>
         <div>
-          <ResultsGrid mics={this.state.micropnones}/>
+          <ResultsGrid mics={this.state.micropnones} search ={this.state.searchValue}/>
         </div>
       </div>
 

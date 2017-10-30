@@ -6,11 +6,14 @@ export default class ResultsGrid extends Component {
 
   render() {
     console.log('ahhh', this.props);
+    let searchTerm = this.props.search
     let micArray = this.props.mics;
-    let mics = micArray.map((mics) => {
+    let mics = micArray.filter((mics)=> {
+      return mics.model = searchTerm
+    }).map((mics) => {
       return (
         <div key={mics.id} className='row'>
-          <table class="four columns">
+          <table className="four columns">
 
             <tbody>
               <tr>
