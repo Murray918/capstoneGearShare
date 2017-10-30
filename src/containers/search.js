@@ -10,17 +10,20 @@ export default class Search extends Component {
 
     this.handleChange = this.handleChange.bind(this);
     this.handleSubmit = this.handleSubmit.bind(this);
-    this.fetchingTheThings = this.fetchingTheThings.bind(this);
     //this sets the state to empty for the the first mount
     this.state = {
       users: [],
-      micropnones : [],
-      searchValue: ""
+      microphones : [],
+      searchValue: "",
+      searched: false,
+      searchTerm:""
+
     }
   }
 
   handleSubmit(event) {
     event.preventDefault(event);
+    this.setState({searchTerm : this.state.searchValue, searched : true})
     console.log(event.target);
   }
 
@@ -30,15 +33,15 @@ export default class Search extends Component {
     console.log(this.state.vlaue);
   }
 
-  fetchingTheThings() {
+  componentDidMount() {
     fetch('http://localhost:8080/listmicrophones')
     .then((response) => {
       console.log(response);
       return response.json()
     }).then((data) => {
       console.log(data.data)
-      let micropnones = data.data
-      this.setState({micropnones: micropnones})
+      let microphones = data.data
+      this.setState({microphones: microphones})
     })
   }
 
@@ -49,12 +52,12 @@ export default class Search extends Component {
       <div id="headerStyle" className="mainSearchWrap">
         <h2>Get the gear you need when you need it!</h2>
         <form onSubmit ={this.handleSubmit} type="submit" className="mainSearchForm">
-          <input type="search" onChange = {this.handleChange} placeholder="Search Gear" id="mainSrearchInput"/>
-          <button onClick={this.fetchingTheThings} className="button-primary searchBtn">Search</button>
+          <input type="search" onChange={this.handleChange} placeholder="Search Gear" id="mainSrearchInput"/>
+          <button onClick = {this.handleSubmit} className="button-primary searchBtn">Search</button>
         </form>
         <div/>
         <div>
-          <ResultsGrid mics={this.state.micropnones} search ={this.state.searchValue}/>
+          <ResultsGrid mics={this.state.microphones} search ={this.state.searchTerm} searched={this.state.searched}/>
         </div>
       </div>
 

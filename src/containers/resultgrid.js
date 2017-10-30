@@ -6,14 +6,12 @@ export default class ResultsGrid extends Component {
 
   render() {
     console.log('ahhh', this.props);
-    let searchTerm = this.props.search
     let micArray = this.props.mics;
-    let mics = micArray.filter((mics)=> {
-      return mics.model = searchTerm
-    }).map((mics) => {
+    let mics = micArray.filter((mics)=>
+    (mics.model === this.props.search)).map((mics) => {
       return (
         <div key={mics.id} className='row'>
-          <table className="four columns">
+          <table className="ten columns">
 
             <tbody>
               <tr>
@@ -28,7 +26,10 @@ export default class ResultsGrid extends Component {
         </div>
       )
     })
+    if (!this.props.searched)
+    return <div></div>
 
+    if (mics.length > 0){
     return (
       <div className="row">
         <thead>
@@ -42,5 +43,7 @@ export default class ResultsGrid extends Component {
         {mics}
       </div>
     )
+  }
+    return <div><h1>There are no microphones that match this criteria.</h1></div>
   }
 }
