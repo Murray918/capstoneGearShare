@@ -122,10 +122,12 @@ html {
   font-size: 62.5%; }
 body {
   font-size: 1.5em; /* currently ems cause chrome bug misinterpreting rems on body element */
-  line-height: 1.6;
   font-weight: 400;
-  font-family: "Raleway", "HelveticaNeue", "Helvetica Neue", Helvetica, Arial, sans-serif;
-  color: #222; }
+  font-family: "franklin-gothic-urw", "HelveticaNeue", "Helvetica Neue", Helvetica, Arial, sans-serif;
+  line-height: 1.4;
+  color: #221E1F; /*this is blue gray*/
+  background: #F8FBF2; /*light blue*/
+}
 
 
 /* Typography
@@ -400,7 +402,15 @@ near the relevant code. For example, if you wanted to change the styles for butt
 on small devices, paste the mobile query code up in the buttons section and style it
 there.
 */
-
+nav {
+  background: #FFFFFF;
+  padding-top: 2.5em ;
+  padding-bottom: 2.5em ;
+  position: fixed;
+  left: 0;
+  right: 0;
+  bottom: 0;
+}
 
 /* Larger than mobile */
 @media (min-width: 400px) {
@@ -412,10 +422,19 @@ there.
 @media (min-width: 550px) {}
 
 /* Larger than tablet */
-@media (min-width: 750px) {}
+@media (min-width: 750px) {
+  nav {
+    margin: 0 auto;
+    position: relative;
+    top: 0;
+    bottom: initial;
+  }
+}
+
 
 /* Larger than desktop */
 @media (min-width: 1000px) {
+
   #headerStyle {
     text-Align : center;
     height: 400px;
@@ -423,20 +442,10 @@ there.
     background-Image: url(../images/closeUpMixer.jpg);
     background-Size: cover;
     background-Position: center;
-    box-Shadow : rgba(0, 0, 0, 0.22) -2px 6px 3px 0px;
-    text-Shadow: 1px 1px 2px black;
   }
 }
 
 /* Larger than Desktop HD */
 @media (min-width: 1200px) {
-  #headerStyle {
-    text-Align : center;
-    color: #A8A1AF;
-    background-Image: url(../images/closeUpMixer.jpg);
-    background-Size: cover;
-    background-Position: center;
-    box-Shadow : rgba(0, 0, 0, 0.22) -2px 6px 3px 0px;
-    text-Shadow: 1px 1px 2px black;
-  }
+
 }

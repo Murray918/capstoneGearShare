@@ -2,49 +2,65 @@ import React, {Component} from 'react';
 import '../styles/skeleton.css';
 import '../styles/normalize.css';
 import ResultsGrid from './resultgrid.js'
-import {BrowserRouter, Route, Switch} from 'react-router-dom';
+import SearchButton from './searchButton.js'
+
 export default class Search extends Component {
   constructor(props) {
     super(props)
 
-    // this.handleNameChange = this.handleNameChange.bind(this);
+    this.handleChange = this.handleChange.bind(this);
     this.handleSubmit = this.handleSubmit.bind(this);
-    this.fetchingTheThings= this.fetchingTheThings.bind(this);
+    this.fetchingTheThings = this.fetchingTheThings.bind(this);
     //this sets the state to empty for the the first mount
     this.state = {
       users: [],
-      value : ""
+      micropnones : [],
+      value: ""
     }
   }
 
+  handleSubmit(event) {
+    event.preventDefault(event);
+    console.log(event.target);
+  }
 
-handleSubmit(event){
-  event.preventDefault();
-  console.log(event.target);
-  // alert('Thank you, your form was submitted')
-  this.setState({users: this.state.value})
-}
+  handleChange(event) {
+    event.preventDefault(event);
+    console.log(event.target);
+  }
 
-fetchingTheThings() {
-  fetch('http://localhost:8080/listusers/').then((response) => {
-    return response.json()
-  }).then((data) => {
-    let users = data;
-    this.setState({users: users})
-  })
-}
+  fetchingTheThings() {
 
+    let searchWord = JSON.stringify(this.state.value);
+    console.log(searchWord);
 
-render() {
+    fetch('http://localhost:8080/listmicrophones')
+    .then((response) => {
+      console.log(response);
+      return response.json()
+    }).then((data) => {
+      console.log(data.data)
+      let micropnones = data.data
+      this.setState({micropnones: micropnones})
+    })
+  }
 
-  return (
-    <div id="headerStyle" className="mainSearchWrap">
-      <form onSubmit ={this.handleSubmit} type="submit" className="mainSearchForm">
-        <input type="search" placeholder="Search Gear" id="mainSrearchInput"/>
-        <button onClick={this.fetchingTheThings} className="button-primary searchBtn">Search</button>
-      </form>
-      <ResultsGrid users = {this.state.users} />
-    </div>
-  );
-}
+  render() {
+
+    return (
+
+      <div id="headerStyle" className="mainSearchWrap">
+        <h2>Get the gear you need when you need it!</h2>
+        <form onSubmit ={this.handleSubmit} type="submit" className="mainSearchForm">
+          <input type="search" onChange = {this.handleChange} placeholder="Search Gear" id="mainSrearchInput"/>
+          <button onClick={this.fetchingTheThings} className="button-primary searchBtn">Search</button>
+        </form>
+        <div/>
+        <div>
+          <ResultsGrid mics={this.state.micropnones}/>
+        </div>
+      </div>
+
+    );
+  }
 }
