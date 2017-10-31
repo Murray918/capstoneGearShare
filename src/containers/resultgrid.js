@@ -2,18 +2,31 @@
 
 import React, {Component} from 'react';
 import ItemResult from './productResult.js'
+import ReactModal from "react-modal";
 
 export default class ResultsGrid extends Component {
   constructor(props){
     super(props)
 
-    this.handleSubmit = this.handleSubmit.bind(this)
 
       this.state = {
         itemId : 0,
-      }
+        showModal: false
+      };
 
-  }
+      this.handleOpenModal = this.handleOpenModal.bind(this);
+      this.handleCloseModal = this.handleCloseModal.bind(this);
+      this.handleSubmit = this.handleSubmit.bind(this);
+    }
+
+    handleOpenModal() {
+      this.setState({ showModal: true });
+    }
+
+    handleCloseModal() {
+      this.setState({ showModal: false });
+    }
+
 
   handleSubmit(event) {
     event.preventDefault(event);
@@ -28,7 +41,7 @@ export default class ResultsGrid extends Component {
     (mics.model === this.props.search)).map((mics, index) => {
       return (
             <tbody key={index}>
-              <tr onClick={this.handleSubmit} >
+              <tr onClick={this.handleSubmit} onClick ={this.handleOpenModal}>
                 <td value = {mics.id} dataLabel = "pic"  ><img className = "productImage" src="https://i.pinimg.com/736x/4c/73/cd/4c73cd4f18bb19f3f01bea263dfa397a.jpg"></img></td>
                 <td value = {mics.id} datalabel = "model">{mics.model}</td>
                 <td value = {mics.id} datalabel = "make">{mics.make}</td>
@@ -47,7 +60,27 @@ export default class ResultsGrid extends Component {
     if (mics.length > 0){
     return (
       <div className = "row">
-          <ItemResult itemId={this.state.itemId} mics={this.props.mics} />
+        <ReactModal
+          isOpen={this.state.showModal}
+          contentLabel="Minimal Modal Example">
+          <div className = "container ">
+          <div className = "three columns modal">
+            <h2>FluffyiKtty has this item for rent</h2>
+            <h2>it is a sure ksm27</h2>
+            <h2>to reach this user text ##########</h2>
+            <h2>the price per day is $12</h2>
+            </div>
+          <div calssName = "three columns ">
+          <button className="button-primary modal" onClick={this.handleCloseModal}>
+            Close Modal
+          </button>
+          <br/>
+          <button className="button-primary modal" onClick={this.handleCloseModal}>
+            Add To Cart
+          </button>
+          </div>
+          </div>
+        </ReactModal>
         <table>
           <thead>
             <tr>

@@ -60,7 +60,8 @@ handleClick(e) {
               </li>
               <li>{this.state.area}</li>
             </ul>
-            <button onClick={this.handleClick}>Update Profile</button>
+            {/* <button onClick={this.handleClick}>Update Profile</button> */}
+            <a class="button button-primary" id="loginButton" href="/updateuser">Update User</a>
           </div>
           <div className="five columns">
             <p>here is your gear information</p>
@@ -75,10 +76,9 @@ handleClick(e) {
               </li>
               <li>you have made ${this.state.totalEarnings}</li>
             </ul>
-            <button onClick = {this.handleClick} >Add Gear</button>
+            <a class="button button-primary" id="loginButton" href="/addgear">Add Gear</a>
           </div>
         </div>
-        <UpdateUserForm profile = {this.state} />
       </div>
     )
   }

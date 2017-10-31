@@ -10,6 +10,8 @@ import Search from './containers/search.js';
 import Profile from './containers/userProfile.js'
 import registerServiceWorker from './registerServiceWorker';
 import {BrowserRouter, Route, Switch} from 'react-router-dom';
+import UpdateUserForm from './containers/updateForm';
+import AddGear from './containers/addgear';
 // import Find from './components/Findus.js'
 // import About from './components/About';
 
@@ -19,10 +21,12 @@ ReactDOM.render(
   <BrowserRouter>
   <BaseLayout>
     <Switch>
-      <Route exact path = '/' component = {Login}/>
       <Route path= '/profile' component={Profile}/>
+      <Route path= '/updateuser' component={UpdateUserForm}/>
+      <Route path= '/addgear' component={AddGear}/>
       <Route path= '/newuser' component={NewUser}/>
       <Route path= '/search' component={Search} />
+      <Route exact path = '/' component = {Login}/>
     </Switch>
   </BaseLayout>
   </BrowserRouter>

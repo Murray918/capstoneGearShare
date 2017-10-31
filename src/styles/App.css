@@ -2,6 +2,15 @@
   margin-top: 2em;
 }
 
+.updateForm {
+  margin: 0 auto;
+}
+
+.modal {
+  margin : 5em;
+  margin-left: 10em;
+}
+
 table {
   border: 1px solid #ccc;
   border-collapse: collapse;
