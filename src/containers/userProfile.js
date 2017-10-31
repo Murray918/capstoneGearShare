@@ -75,7 +75,7 @@ handleClick(e) {
               </li>
               <li>you have made ${this.state.totalEarnings}</li>
             </ul>
-            <button onClick = {this.handleClick} >Update Profile</button>
+            <button onClick = {this.handleClick} >Add Gear</button>
           </div>
         </div>
         <UpdateUserForm profile = {this.state} />

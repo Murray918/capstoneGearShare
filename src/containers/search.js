@@ -32,10 +32,10 @@ export default class Search extends Component {
     // console.log(this.state.vlaue);
   }
 
-  componentWillMount() {
+  componentDidMount() {
     fetch('http://localhost:8080/listmicrophones')
     .then((response) => {
-      // console.log(response);
+      console.log(response);
       return response.json()
     }).then((data) => {
       console.log('this is what happens with will mount');

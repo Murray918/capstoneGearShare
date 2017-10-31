@@ -34,7 +34,8 @@
   max-width: 960px;
   margin: 0 auto;
   padding: 0 20px;
-  box-sizing: border-box; }
+  box-sizing: border-box;
+ }
 .column,
 .columns {
   width: 100%;
@@ -45,7 +46,9 @@
 @media (min-width: 400px) {
   .container {
     width: 85%;
-    padding: 0; }
+    padding: 0;
+   }
+
 }
 
 /* For devices larger than 550px */
@@ -121,6 +124,7 @@ are based on 10px sizing. So basically 1.5rem = 15px :) */
 html {
   font-size: 62.5%; }
 body {
+  padding-bottom: 220px;
   font-size: 1.5em; /* currently ems cause chrome bug misinterpreting rems on body element */
   font-weight: 400;
   font-family: "franklin-gothic-urw", "HelveticaNeue", "Helvetica Neue", Helvetica, Arial, sans-serif;
@@ -403,6 +407,7 @@ on small devices, paste the mobile query code up in the buttons section and styl
 there.
 */
 nav {
+  z-index: 2;
   background: #FFFFFF;
   padding-top: 2.5em ;
   padding-bottom: 2.5em ;
@@ -435,14 +440,7 @@ nav {
 /* Larger than desktop */
 @media (min-width: 1000px) {
 
-  #headerStyle {
-    text-Align : center;
-    height: 400px;
-    color: #65C1E5;
-    background-Image: url(../images/closeUpMixer.jpg);
-    background-Size: cover;
-    background-Position: center;
-  }
+
 }
 
 /* Larger than Desktop HD */

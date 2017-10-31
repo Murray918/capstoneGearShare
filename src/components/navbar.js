@@ -7,24 +7,21 @@ export default class BaseLayout extends Component {
   render() {
 
     return (
-      <div>
+      <div >
 
-        <nav>
+        <nav className = "hideNav">
           <div className="container">
             <div className="row navWrap">
               <div className="two columns navText">
-                <NavLink to='/'>Home</NavLink>
+                <NavLink to='/search'>Search</NavLink>
               </div>
               <div className="two columns navText">
-                <NavLink to='/newUser'>New User</NavLink>
+                <NavLink to='/profile'>Profile</NavLink>
               </div>
               <div className="two columns navText">
-                <NavLink to='/rent'>Rent</NavLink>
+                <NavLink activeClassName="selected" to="/">Logout</NavLink>
               </div>
-              <div className="two columns navText">
-                <NavLink activeClassName="selected" to="">Message</NavLink>
-              </div>
-
+                <span className = "usernameNav">SwirlingBeeHive</span>
             </div>
           </div>
         </nav>

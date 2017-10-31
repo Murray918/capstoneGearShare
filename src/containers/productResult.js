@@ -16,20 +16,20 @@ export default class ItemResult extends Component {
   }
 
 
-  componentWillReceiveProps(nextProps) {
-    console.log("now look at it");
-  console.log(this.props.itemId);
-    fetch('http://localhost:8080/microphone/' + this.props.itemId)
-    .then((response) => {
-      console.log(response);
-      return response.json()
-    }).then((data) => {
-      console.log('this is the data', data.data)
-      let microphone = data
-      this.setState({microphone: microphone, userToGet : microphone.user_id})
-      console.log("this is that data", microphone.user_id);
-      console.log( "this is the state", this.state.microphone);
-    })
+  // componentWillReceiveProps(nextProps) {
+  //   console.log("now look at it");
+  // console.log(this.props.itemId);
+  //   fetch('http://localhost:8080/microphones/' + this.props.itemId)
+  //   .then((response) => {
+  //     console.log(response);
+  //     return response.json()
+  //   }).then((data) => {
+  //     console.log('this is the data', data.data)
+  //     let microphone = data
+  //     this.setState({microphone: microphone, userToGet : microphone.user_id})
+  //     console.log("this is that data", microphone.user_id);
+  //     console.log( "this is the state", this.state.microphone);
+    // })
     // fetch('http://localhost:8080//getuser/' + this.state.userToGet)
     // .then((response) => {
     //   console.log(response);
@@ -40,7 +40,7 @@ export default class ItemResult extends Component {
     //   this.setState({user: user})
     //   console.log(this.state.user);
     // })
-  }
+  // }
 
 
   render() {
