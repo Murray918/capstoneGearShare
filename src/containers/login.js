@@ -57,7 +57,7 @@ export default class Login extends Component {
 
       <div className="container">
         <h1>Gear Lend</h1>
-
+id="loginButton"
         <h2>Get the gear you need when you need it!</h2>
 
         <form id="loginForm" className="row">
@@ -70,7 +70,7 @@ export default class Login extends Component {
             <input className="u-full-width" on type="text" placeholder="Enter your password here."/>
           </div>
           <div>
-            <input onClick = "" className="button-primary" id="loginButton" type="submit" value="Submit"/>
+            <a class="button button-primary" id="loginButton" href="/search">Login</a>
           </div>
         </form>
         <a href="/newuser" className="list-group-item list-group-item-action contact-links loginLinks">Not Registered</a>

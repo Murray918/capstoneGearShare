@@ -18,7 +18,7 @@ constructor(props){
     email : 'spinDoctors@gmail.com',
     area : 'Austin Area',
     password : '12345678',
-    mounter : 0,
+    mounter : false,
     numOfMics : 2,
     mics : [{'make' : 'sm5b', 'price' : 10 }, {'make' : 'neumann 102', 'price' : 67}],
     totalEarnings : 231,
@@ -27,18 +27,22 @@ constructor(props){
 
 }
 
+
+
+
 handleClick(e) {
   e.preventDefault(e)
-  let mount = 0;
-  mount += 1;
-  this.setState({mounter : mount})
+  if (this.state.mounter === true){
+  this.setState({mounter : false})
+} else {
+  this.setState({mounter : true})
+}
 }
 
 
 
   render() {
 
-    if (this.state.mount = 0){
     return (
       <div className='container'>
         <div className="row">
@@ -74,9 +78,8 @@ handleClick(e) {
             <button onClick = {this.handleClick} >Update Profile</button>
           </div>
         </div>
+        <UpdateUserForm profile = {this.state} />
       </div>
-    )   } else {
-          return <UpdateUserForm/>
-      }
+    )
   }
 }

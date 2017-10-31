@@ -56,7 +56,6 @@ export default class Search extends Component {
         <div/>
       </div>
       <div className="results container">
-
         <ResultsGrid mics={this.state.microphones} search ={this.state.searchTerm} searched={this.state.searched}/>
       </div>
     </div>

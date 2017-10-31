@@ -1,15 +1,37 @@
 'use strtict'
 
 import React, {Component} from 'react';
-import {Route} from 'react-router-dom';
+ import {BrowserRouter, Route, Switch} from 'react-router-dom';
 // import '../styles/skeleton.css';
 // import '../styles/normalize.css';
 
 export default class UpdateUserForm extends Component {
+
+  constructor(){
+    super()
+
+this.handleClick = this.handleClick.bind(this);
+
+    this.state = {
+      mounter : false
+    }
+  }
+
+  handleClick(e) {
+    e.preventDefault(e)
+    if (this.props.mounter === true){
+    this.setState({mounter : false})
+  } else {
+    this.setState({mounter : true})
+  }
+  }
+
   render() {
 
-    return (
 
+      if (this.state.mounter === false || this.props.mounter === false){
+        return <div></div>
+      }return(
       <div className="container">
         <form>
           <div className="row">
@@ -30,10 +52,12 @@ export default class UpdateUserForm extends Component {
               <input className="u-full-width" type="text" placeholder={this.props.area}/>
             </div>
           </div>
-          <input onSumbit={this.componentUnmount} Route to = '/profile' className="button-primary" type="submit" value="Submit"/>
+          <input onClick = {this.handleClick}
+          Route path='/profile' className="button-primary" type="submit" value="Submit"/>
         </form>
       </div>
 
     );
+
   }
 }
