@@ -48,19 +48,18 @@ export default class Search extends Component {
   render() {
 
     return (
-
+      <div>
       <div id="headerStyle" className="mainSearchWrap">
-        <h2>Get the gear you need when you need it!</h2>
         <form onSubmit ={this.handleSubmit} type="submit" className="mainSearchForm">
           <input type="search" onChange={this.handleChange} placeholder="Search Gear" id="mainSrearchInput"/>
           <button onClick = {this.handleSubmit} className="button-primary searchBtn">Search</button>
         </form>
         <div/>
-        <div>
-          <ResultsGrid mics={this.state.microphones} search ={this.state.searchTerm} searched={this.state.searched}/>
-        </div>
       </div>
-
+      <div className="results container">
+        <ResultsGrid mics={this.state.microphones} search ={this.state.searchTerm} searched={this.state.searched}/>
+      </div>
+    </div>
     );
   }
 }
