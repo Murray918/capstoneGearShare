@@ -2,7 +2,7 @@ import React, {Component} from 'react';
 import '../styles/skeleton.css';
 import '../styles/normalize.css';
 import ResultsGrid from './resultgrid.js'
-import SearchButton from './searchButton.js'
+import ItemResult from './productResult.js'
 
 export default class Search extends Component {
   constructor(props) {
@@ -17,29 +17,28 @@ export default class Search extends Component {
       searchValue: "",
       searched: false,
       searchTerm:""
-
     }
   }
 
   handleSubmit(event) {
     event.preventDefault(event);
     this.setState({searchTerm : this.state.searchValue, searched : true})
-    console.log(event.target);
+    // console.log(event.target);
   }
 
   handleChange(event) {
     event.preventDefault(event);
     this.setState({searchValue : event.target.value})
-    console.log(this.state.vlaue);
+    // console.log(this.state.vlaue);
   }
 
-  componentDidMount() {
+  componentWillMount() {
     fetch('http://localhost:8080/listmicrophones')
     .then((response) => {
-      console.log(response);
+      // console.log(response);
       return response.json()
     }).then((data) => {
-      console.log(data.data)
+      console.log('this is what happens with will mount');
       let microphones = data.data
       this.setState({microphones: microphones})
     })
@@ -57,6 +56,7 @@ export default class Search extends Component {
         <div/>
       </div>
       <div className="results container">
+
         <ResultsGrid mics={this.state.microphones} search ={this.state.searchTerm} searched={this.state.searched}/>
       </div>
     </div>

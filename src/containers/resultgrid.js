@@ -1,6 +1,7 @@
 'use strtict'
 
 import React, {Component} from 'react';
+import ItemResult from './productResult.js'
 
 export default class ResultsGrid extends Component {
   constructor(props){
@@ -9,30 +10,25 @@ export default class ResultsGrid extends Component {
     this.handleSubmit = this.handleSubmit.bind(this)
 
       this.state = {
-        itemId : null,
-        renderResults : true
+        itemId : 0,
       }
 
   }
 
   handleSubmit(event) {
     event.preventDefault(event);
-    console.log(event.target.getAttribute('value'));
+    // console.log("this is the Value", event.target.getAttribute('value'));
     this.setState({itemId : event.target.getAttribute('value')});
-    // console.log("in the handel", this.state.userId);
-    if(this.state.renderResults !null){
-      console.log('party time');
-    }
   }
 
   render() {
-    console.log('ahhh', this.props);
+    // console.log('ahhh', this.props);
     let micArray = this.props.mics;
     let mics = micArray.filter((mics)=>
     (mics.model === this.props.search)).map((mics, index) => {
       return (
-            <tbody >
-              <tr onClick={this.handleSubmit} key={index}>
+            <tbody key={index}>
+              <tr onClick={this.handleSubmit} >
                 <td value = {mics.id} dataLabel = "pic"  ><img className = "productImage" src="https://i.pinimg.com/736x/4c/73/cd/4c73cd4f18bb19f3f01bea263dfa397a.jpg"></img></td>
                 <td value = {mics.id} datalabel = "model">{mics.model}</td>
                 <td value = {mics.id} datalabel = "make">{mics.make}</td>
@@ -51,6 +47,7 @@ export default class ResultsGrid extends Component {
     if (mics.length > 0){
     return (
       <div className = "row">
+          <ItemResult itemId={this.state.itemId} mics={this.props.mics} />
         <table>
           <thead>
             <tr>
@@ -63,6 +60,7 @@ export default class ResultsGrid extends Component {
             </tr>
           </thead>
         {mics}
+
         </table>
       </div>
     )
